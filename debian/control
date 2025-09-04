@@ -1,15 +1,15 @@
-Source: template-repository
-Section: unknown
+Source: dmtx-utils
+Section: utils
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Roberto Lumbreras <rover@debian.org>
+Build-Depends: debhelper (>= 11), pkg-config, libmagickwand-dev, libdmtx-dev (>= 0.7.5)
+Standards-Version: 4.1.5
+Homepage: http://libdmtx.sourceforge.net
 
-Package: template-repository
+Package: dmtx-utils
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Utilities for reading and writing Data Matrix 2D barcodes
+ Command-line utilities for reading and writing Data Matrix 2D barcodes,
+ two-dimensional symbols that hold a dense pattern of data with built-in
+ error correction.

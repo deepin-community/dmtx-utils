@@ -1,0 +1,31 @@
+=================================================================
+            libdmtx - Open Source Data Matrix Software
+=================================================================
+
+                dmtx-utils README file (FreeBSD)
+
+This README.freebsd file contains information on installing and
+using libdmtx on FreeBSD. The general README file, also found in
+this directory, contains a high level summary of libdmtx and its
+components.
+
+
+1. Installing dmtx-utils on FreeBSD
+-----------------------------------------------------------------
+
+dmtx-utils can be installed on FreeBSD using the instructions
+provided in the general README file. However, please read below
+for additional details that might benefit users on this platform.
+
+
+2. Running configure
+-----------------------------------------------------------------
+
+FreeBSD users may need to export the CPPFLAGS and LDFLAGS
+variables as follows before running configure:
+
+   $ export CPPFLAGS=-I/usr/local/include
+   $ export LDFLAGS=-L/usr/local/lib
+   $ ./configure
+   $ make
+   $ sudo make install

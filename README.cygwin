@@ -1,0 +1,42 @@
+=================================================================
+            libdmtx - Open Source Data Matrix Software
+=================================================================
+
+                dmtx-utils README file (Cygwin)
+
+This README.cygwin file contains information on installing and
+using libdmtx on Windows in a Cygwin environment. The general
+README file, also found in this directory, contains a high level
+summary of libdmtx and its components.
+
+
+1. Installing dmtx-utils on Windows using Cygwin
+-----------------------------------------------------------------
+
+dmtx-utils can be installed on Cygwin using the instructions
+provided in the general README file. However, please see below
+for additional details that might benefit users on this platform.
+
+
+2. Dependencies
+-----------------------------------------------------------------
+
+The following packages must be installed to compile libdmtx on
+Cygwin:
+
+  * gcc
+  * make
+  * automake
+  * pkg-config
+
+Also, if libdmtx was obtained from Subversion:
+
+  * autoconf
+  * libtool
+
+Also, if compiling dmtxread and/or dmtxwrite:
+
+  * libSM-devel
+  * libXt-devel
+  * ImageMagick
+  * libMagick-devel

@@ -1,0 +1,125 @@
+=================================================================
+            libdmtx - Open Source Data Matrix Software
+=================================================================
+
+             dmtx-utils README file (all platforms)
+
+This summary of the dmtx-utils package applies generally to all
+platforms. For instructions regarding your specific platform
+please also read the README.xxx file in this directory that
+matches your system (e.g., README.linux, README.cygwin,
+README.osx, etc...).
+
+
+1. Introduction
+-----------------------------------------------------------------
+
+libdmtx is a software library that enables programs to read and
+write Data Matrix barcodes of the modern ECC200 variety. This
+package, dmtx-utils, provides command line utilities that allow
+scripts and command line users to use libdmtx functionality.
+
+
+2. Installation
+-----------------------------------------------------------------
+
+In theory the following 3 steps will compile and install libdmtx
+on your system:
+
+  $ ./configure
+  $ make
+  $ sudo make install
+
+However, you may need to install additional software for these
+steps to work properly. Details are provided below to handle
+error messages or if you want to customize beyond the defaults.
+
+Details on "configure" step
+----------------------------------------
+If you obtained libdmtx from Git you may have received an error
+like "./configure: No such file or directory". Run this command
+and try again:
+
+  $ ./autogen.sh
+
+The autogen.sh command requires autoconf, automake, libtool, and
+pkgconfig to be installed on your system.
+
+Also, if you built and installed the libdmtx library from source
+it's like that configure gave you an error similar to this:
+
+  configure: error: dmtxread/dmtxwrite requires libdmtx >= 0.7.0
+
+You can fix this by telling configure where to find libdmtx.pc:
+
+  $ ./configure PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+
+Note: This path may be different on your system.
+
+Details on "make" step
+----------------------------------------
+Errors encountered during the "make" step are often a result of
+missing software dependencies. Install any missing software and
+try again.
+
+Details on "sudo make install" step
+----------------------------------------
+If the 'sudo' command is not configured on your system then
+alternatively you can yell "Yeeehaww!" as you log in as root and
+run this instead:
+
+  $ make install
+
+
+3. Basic Usage
+-----------------------------------------------------------------
+
+New users are encouraged to read the man pages for the library
+and command line utilities. However, here are a few simple cases
+to get you started:
+
+The dmtxwrite utility turns a message into a barcode image. The
+message is passed to dmtxwrite via file or standard input, and
+the output image is written to file or standard output. The
+following examples all produce an equivalent result:
+
+  $ echo -n 123456 | dmtxwrite > image.png
+  $ echo -n 123456 | dmtxwrite -o image.png
+  $ echo -n 123456 > mesg.txt; dmtxwrite mesg.txt > image.png
+  $ dmtxwrite <(echo -n 123456) -o image.png
+
+Conversely, the dmtxread utility turns barcode images back into
+messages. Images are passed to dmtxread via standard input or
+file, and the output is written to standard output. The following
+examples will produce an equivalent result:
+
+  $ dmtxread -n image.png
+  $ cat image.png | dmtxread -n
+
+Other typical cases:
+
+  $ dmtxread -n -N1 image1.png image2.png image3.png
+  $ dmtxread -n -N1 -m500 image.png
+
+You can even combine the utilities like this:
+
+  $ echo 'Hello, world!' | dmtxwrite | dmtxread
+  Hello, world!
+
+  $ dmtxread image1.png | dmtxwrite -o image2.png
+
+Note: In this example the barcode in image2.png might appear
+different than the one in image1.png. Both barcodes will encode
+the same message, but the overall barcode shape and its internal
+bit pattern might be different.
+
+
+4. Contact
+-----------------------------------------------------------------
+
+Project website:       http://www.libdmtx.org
+Documentation wiki:    http://libdmtx.wikidot.com
+SourceForge.net page:  http://www.sourceforge.net/projects/libdmtx
+OhLoh.net page:        https://www.ohloh.net/projects/libdmtx
+Open mailing list:     libdmtx-open_discussion@lists.sourceforge.net
+Professional support:  www.dragonflylogic.com/products
