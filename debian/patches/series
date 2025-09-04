@@ -1,0 +1,3 @@
+001-fix-hyphen-used-as-minus-sign.patch
+002-pkg-config.patch
+003-compiler-warnings.patch

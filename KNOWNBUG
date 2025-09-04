@@ -1,0 +1,31 @@
+Bugs in dmtx-utils
+-----------------------------------------------------------------
+
+1. dmtxread
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The follow options are considered experimental:
+  -M,  --mosaic              interpret as Data Mosaic barcodes
+
+
+2. dmtxwrite
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The follow options are considered experimental:
+  -eb, --encodation=b        best encodation (beta only)
+  -M,  --mosaic              create Data Mosaic (non-standard)
+
+The follow options are not implemented yet:
+  -ef, --encodation=f        fast encodation
+  -c,  --color=COLOR         barcode color
+  -b,  --bgcolor=COLOR       background color
+  -r,  --rotate=DEGREES      rotation angle
+
+
+3. Scripts in the script directory
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The check_headers.pl script verifies that every function has
+a correctly-formed header comment.  But the test condition is
+currently pretty simple, and does not test the first function
+appearing in each file.
